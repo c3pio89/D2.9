@@ -1,0 +1,13 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+{% block title %}
+text
+{% endblock title %}
+
+{% block content %}
+<p> {{ CurrentNews.title|censor }} </p>
+<p> {{ CurrentNews.text|censor }} </p>
+<p> <b> Рейтинг новости - </b> {{ CurrentNews.rating }} </p>
+<p> <b> Дата написания новости - </b> {{ CurrentNews.dateCreation|date:'d.m.Y' }} </p>
+{% endblock content %}
