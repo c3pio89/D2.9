@@ -31,3 +31,17 @@ class CurrentArticles(DetailView):
     context_object_name = 'CurrentArticles'
     def get_queryset(self):
         return Post.objects.filter(categoryType='AR')
+
+class news(ListView):
+    model = Post
+    template_name = 'news.html'
+    context_object_name = 'news'
+    def get_queryset(self):
+        return Post.objects.filter().all()
+
+class CurrentPost(DetailView):
+    model = Post
+    template_name = 'CurrentPost.html'
+    context_object_name = 'CurrentPost'
+    def get_queryset(self):
+        return Post.objects.filter().all()
