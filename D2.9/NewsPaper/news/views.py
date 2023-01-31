@@ -17,3 +17,17 @@ class CurrentNews(DetailView):
     def get_queryset(self):
         return Post.objects.filter(categoryType='NW')
 
+class ArticlesList(ListView):
+    model = Post
+    template_name = 'ArticlesList.html'
+    context_object_name = 'ArticlesList'
+    def get_queryset(self):
+        return Post.objects.filter(categoryType='AR').order_by('dateCreation')
+
+
+class CurrentArticles(DetailView):
+    model = Post
+    template_name = 'CurrentArticles.html'
+    context_object_name = 'CurrentArticles'
+    def get_queryset(self):
+        return Post.objects.filter(categoryType='AR')
