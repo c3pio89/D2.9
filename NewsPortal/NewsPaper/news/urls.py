@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import NewsList, CurrentNews, ArticlesList, CurrentArticles, news, CurrentPost
-
+from .views import NewsList, CurrentNews, ArticlesList, CurrentArticles, news, CurrentPost, search
 
 urlpatterns = [
     path('news/', NewsList.as_view()),
@@ -9,4 +8,5 @@ urlpatterns = [
     path('articles/<int:pk>', CurrentArticles.as_view()),
     path('post/', news.as_view()),
     path('post/<int:pk>', CurrentPost.as_view()),
+    path('search/', search.as_view()),
 ]
