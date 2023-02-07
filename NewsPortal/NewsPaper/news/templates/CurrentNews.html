@@ -10,4 +10,6 @@ text
 <p> {{ CurrentNews.text|censor }} </p>
 <p> <b> Рейтинг новости : </b> {{ CurrentNews.rating }} </p>
 <p> <b> Дата написания новости : </b> {{ CurrentNews.dateCreation|date:'d.m.Y' }} </p>
+<a href = '/news/{{CurrentNews.id}}/edit'> Редактировать </b>  </a> <br>
+<a href = '/news/{{CurrentNews.id}}/delete'> Удалить </b>  </a> <br>
 {% endblock content %}

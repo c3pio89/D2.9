@@ -15,7 +15,11 @@ text
 {% endif %}
 {% if CurrentPost.categoryType == 'AR' %}
 <p> <b> Дата написания статьи : </b> {{ CurrentPost.dateCreation|date:'d.m.Y' }} </p>
+<a href = '/articles/{{CurrentPost.id}}edit'> Редактировать </b>  </a> <br>
+<a href = '/articles/{{CurrentPost.id}}delete'> Удалить </b>  </a> <br>
 {% else %}
 <p> <b> Дата написания новости : </b> {{ CurrentPost.dateCreation|date:'d.m.Y' }} </p>
+<a href = '/news/{{CurrentPost.id}}/edit'> Редактировать </b>  </a> <br>
+<a href = '/news/{{CurrentPost.id}}/delete'> Удалить </b>  </a> <br>
 {% endif %}
 {% endblock content %}
