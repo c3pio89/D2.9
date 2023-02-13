@@ -39,12 +39,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/search">Поиск статей</a>
                         </li>
+                        {% if perms.news.add_post %}
                         <li class="nav-item">
                             <a class="nav-link" href="/news/create">Написать новость </a>
                         </li>
+                        {% endif %}
+                        {% if perms.news.add_post %}
                         <li class="nav-item">
                             <a class="nav-link" href="/articles/create">Написать статью </a>
                         </li>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/accounts/logout">Выйти из аккаунта </a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/accounts/login">Войти в аккаунт </a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

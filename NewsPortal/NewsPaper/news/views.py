@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .forms import PostForm
@@ -68,7 +68,8 @@ class search(ListView):
         context['filterset'] = self.filterset
         return context
 
-class NewsCreate(PermissionRequiredMixin, CreateView):
+class NewsCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
+    raise_exception = True
     permission_required = ('news.add_post')
     form_class = PostForm
     model = Post
@@ -127,3 +128,5 @@ class ArticlesDelete(PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'ArticlesDelete.html'
     success_url = '/articles/'
+
+
