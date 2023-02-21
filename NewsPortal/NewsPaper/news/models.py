@@ -24,9 +24,13 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(unique=True, max_length=255)
+    subscribers = models.ManyToManyField(User, through='Subscriber')
 
     def __str__(self):
         return self.name
+
+    def get_subscribers(self):
+        return ",\n".join([str(p) for p in self.subscribers.all()])
 
 
 class Post(models.Model):
@@ -81,7 +85,7 @@ class Comment(models.Model):
         self.rating -= 1
         self.save()
 
-class Subscription(models.Model):
+class Subscriber(models.Model):
     user = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
