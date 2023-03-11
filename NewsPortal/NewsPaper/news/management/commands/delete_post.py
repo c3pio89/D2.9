@@ -6,7 +6,7 @@ class Command(BaseCommand):
     requires_migrations_checks = True
 
     def add_arguments(self, parser):
-        parser.add.argument('category', type=str)
+        parser.add_argument('category', type=str)
 
     def handle(self, *args, **options):
         answer = input(f'Вы действительно хотите удалить категорию {options["category"]}? yes/no')
