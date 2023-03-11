@@ -12,9 +12,10 @@ class Command(BaseCommand):
         answer = input(f'Вы действительно хотите удалить категорию {options["category"]}? yes/no')
         if answer != 'yes':
             self.stdout.write(self.style.ERROR('Отменено'))
-        try:
-            category = Category.objects.get(name=options['category'])
-            Post.objects.filter(category=category).delete()
-            self.stdout.write(self.style.SUCCESS(f'Cтатьи в категории {category.name} удалены'))
-        except category.DoesNot.Exist:
-            self.stdout.write(self.style.ERROR(f'Нет такой категории {category.name}'))
+        else:
+            try:
+                category = Category.objects.get(name=options['category'])
+                Post.objects.filter(category=category).delete()
+                self.stdout.write(self.style.SUCCESS(f'Cтатьи в категории {category.name} удалены'))
+            except:
+                self.stdout.write(self.style.ERROR(f'Нет такой категории{options["category"]}'))
