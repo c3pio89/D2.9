@@ -1,0 +1,1 @@
+[{"model": "news.category", "pk": 1, "fields": {"name": "Games"}}, {"model": "news.category", "pk": 2, "fields": {"name": "InternationalNews"}}, {"model": "news.category", "pk": 3, "fields": {"name": "HighTech"}}, {"model": "news.category", "pk": 4, "fields": {"name": "Python"}}]
