@@ -17,4 +17,4 @@ class Command(BaseCommand):
             Post.objects.filter(category=category).delete()
             self.stdout.write(self.style.SUCCESS(f'Cтатьи в категории {category.name} удалены'))
         except category.DoesNot.Exist:
-            self.stdout.write(self.style.ERROR(f'Нет такой категории {}'))
+            self.stdout.write(self.style.ERROR(f'Нет такой категории {category.name}'))
