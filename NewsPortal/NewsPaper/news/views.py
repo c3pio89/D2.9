@@ -174,3 +174,4 @@ class IndexView(View):
     def get(self, request):
         hello.delay()
         return HttpResponse('Hello!')
+
